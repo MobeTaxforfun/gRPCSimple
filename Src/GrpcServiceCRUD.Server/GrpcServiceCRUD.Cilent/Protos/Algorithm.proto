@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcServiceCRUD.Protos";
+
+package Algorithm;
+
+service Algorithmer{
+	rpc AlgorithmAddition (AddTwoValue) returns (SumTwoValue);
+}
+
+message AddTwoValue{
+	int32 addend = 1;
+	int32 augend = 2;
+}
+
+message SumTwoValue{
+	int32 sum = 1; 
+}

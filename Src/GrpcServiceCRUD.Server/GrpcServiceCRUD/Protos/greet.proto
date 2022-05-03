@@ -1,0 +1,25 @@
+syntax = "proto3";
+//proto 檔會轉成預設命空間
+//跟Dockerfile一樣最前面不能放東西 小心點 囧
+option csharp_namespace = "GrpcServiceCRUD";
+
+package greet;
+
+// The greeting service definition.
+// 實作service 時需要繼承這個東西 
+service Greeter {
+  // Sends a greeting
+  // 定義 rpc Method [request] returns [response]
+  rpc SayHello (HelloRequest) returns (HelloReply);
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  //[型別 屬性名 = 順序]
+  string name = 1;
+}
+
+// The response message containing the greetings.
+message HelloReply {
+  string message = 1;
+}
