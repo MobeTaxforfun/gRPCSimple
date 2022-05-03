@@ -1,10 +1,3 @@
----
-title: C# gRPC Server
-tags:
-date:
-categories:
----
-
 # gRPCSimple
 嘗試 .net core 提供的 gRPC框架
 很實用 [Google 開發手冊](https://developers.google.com/protocol-buffers/docs/proto3)  
