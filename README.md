@@ -7,12 +7,13 @@ categories:
 
 # gRPCSimple
 嘗試 .net core 提供的 gRPC框架
+很實用 [Google 開發手冊](https://developers.google.com/protocol-buffers/docs/proto3)  
 # 重點步驟
-1. 先建立 proto 檔，並編寫相關規範
+1. 先建立 proto 檔，並編寫相關規範  
 ![](https://i.imgur.com/fmWBnYq.png)
     
-    proto 本人
-    形態要稍微注意一下，詳情可見[Google 開發手冊](https://developers.google.com/protocol-buffers/docs/proto3)
+    proto 本人  
+    形態要稍微注意一下，詳情可見[Google 開發手冊](https://developers.google.com/protocol-buffers/docs/proto3)  
     
     
     ```csharp= 
@@ -44,34 +45,33 @@ categories:
     }
     ```
     
-3. 使用 .Net gRPC 框架建立 gRPC Server 服務
-    記得在 csproj 中指定 prote 使用 CodeGen 自動產生 Class
-    GrpcServices > Server 端就選 Server
+3. 使用 .Net gRPC 框架建立 gRPC Server 服務  
+    記得在 csproj 中指定 prote 使用 CodeGen 自動產生 Class  
+    GrpcServices > Server 端就選 Server  
 ```csharp=
 <ItemGroup>
     <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\Algorithm.proto" GrpcServices="Server" />
 </ItemGroup>
 ```   
-5. 實作服務
-
+5. 實作服務  
 繼承 Greeter.GreeterBase 完成相關操作 
 ![](https://i.imgur.com/Ui56Tst.png)
 
-7. 將服務發行
-     在 Program.cs 中註冊服務
+7. 將服務發行  
+     在 Program.cs 中註冊服務  
     ```csharp=
     app.MapGrpcService<GreeterService>();
     app.MapGrpcService<AlgorithmerService>();
     ```
 
-9. 在 Client 端取得 proto 檔
-    將寫好的 Proto 移至要實作的 Client
+9. 在 Client 端取得 proto 檔  
+    將寫好的 Proto 移至要實作的 Client  
 ![](https://i.imgur.com/OjDVuyp.png)
 
-11. 使用 .Net gRPC 框架建立 gRPC Clinet 端
-    記得在 csproj 中指定 prote 使用 CodeGen 自動產生 Class
-    GrpcServices > Client 端就選 Client
+11. 使用 .Net gRPC 框架建立 gRPC Clinet 端  
+    記得在 csproj 中指定 prote 使用 CodeGen 自動產生 Class  
+    GrpcServices > Client 端就選 Client  
     ```csharp=
       <ItemGroup>
         <Protobuf Include="Protos\greet.proto" GrpcServices="Client" />
